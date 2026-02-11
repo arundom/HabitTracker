@@ -53,6 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                // App title
                 const Text(
                   'Habitt',
                   style: TextStyle(
@@ -61,7 +62,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     color: Colors.white,
                   ),
                 ),
+                
                 const SizedBox(height: 30),
+                // Username field
                 Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -80,6 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 const SizedBox(height: 20),
+               // Password field with obscured text
                 Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -103,6 +107,19 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: TextButton(
                     onPressed: () {
                       // Logic for forgot password can be added here
+                      AlertDialog(
+                        title: const Text('Forgot Password'),
+                        content: const Text(
+                            'Please contact support to reset your password.'),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: const Text('OK'),
+                          ),
+                        ],
+                      );
                     },
                     child: const Text(
                       'Forgot password?',
@@ -111,6 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 const SizedBox(height: 20),
+                // Login button to navigate to the habit tracker screen
                 ElevatedButton(
                   onPressed: _login,
                   style: ElevatedButton.styleFrom(
@@ -136,6 +154,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: TextStyle(color: Colors.white70),
                 ),
                 const SizedBox(height: 10),
+                // Sign up button to navigate to the registration screen
                 OutlinedButton(
                   onPressed: () {
                     Navigator.push(
