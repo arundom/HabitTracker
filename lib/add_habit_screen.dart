@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// This file implements functionality for Detail Screen, allowing users to add and manage their habits with associated colors.
+
 class AddHabitScreen extends StatefulWidget {
   const AddHabitScreen({super.key});
 
