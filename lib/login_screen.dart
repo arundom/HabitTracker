@@ -15,7 +15,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   // Default credentials
   final String defaultUsername = 'testuser';
-  final String defaultPassword = 'password123';
+  final String defaultPassword = 'letmein';
 
   void _login() {
     // The login logic goes here

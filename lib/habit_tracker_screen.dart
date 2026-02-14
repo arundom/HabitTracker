@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'settings_screen.dart';
 import 'add_habit_screen.dart';
 
 class HabitTrackerScreen extends StatefulWidget {
@@ -16,8 +17,9 @@ class _HabitTrackerScreenState extends State<HabitTrackerScreen> {
   String name = '';
 
   @override
-  void initState() {
+  void initState() {    
     super.initState();
+    name = widget.username;
   }
 
   Future<void> _saveHabits() async {
@@ -50,7 +52,7 @@ class _HabitTrackerScreenState extends State<HabitTrackerScreen> {
       appBar: AppBar(
         backgroundColor: Colors.blue.shade700,
         title: Text(
-          name.isNotEmpty ? name : 'Loading...',
+          name.isNotEmpty ? 'Hi $name !' : 'Hello there...',
           style: const TextStyle(
             fontSize: 24,
             color: Colors.white,
@@ -58,6 +60,19 @@ class _HabitTrackerScreenState extends State<HabitTrackerScreen> {
           ),
         ),
         automaticallyImplyLeading: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings),
+            tooltip: 'Settings',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const SettingsScreen()),
+              );
+            },
+          ),
+        ],
       ),
        drawer: Drawer(
         child: ListView(
