@@ -257,7 +257,9 @@ class _HabitTrackerScreenState extends State<HabitTrackerScreen> {
                   MaterialPageRoute(
                     builder: (context) => AddHabitScreen(),
                   ),
-                );
+                ).then((_) {
+                  _loadUserData(); // Reload data after returning
+                });
               },
               child: Icon(Icons.add),
               backgroundColor: Colors.blue.shade700,
