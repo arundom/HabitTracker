@@ -30,6 +30,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
     if (username == defaultUsername && password == defaultPassword) {
 
+      await prefs.setString('name', 'Arun');
+      await prefs.setString('username', 'testuser');
+      await prefs.setDouble('age', 25);
+      await prefs.setString('country', 'United States');
+
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
