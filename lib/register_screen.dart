@@ -59,6 +59,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     } catch (e) {
       // Handle error
       _showToast('Error fetching countries');
+      print(" Error fetching countries: $e");
     }
   }
 
