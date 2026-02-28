@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'settings_screen.dart';
 import 'add_habit_screen.dart';
+import 'login_screen.dart';
 
 class HabitTrackerScreen extends StatefulWidget {
   final String username;
@@ -61,6 +62,16 @@ class _HabitTrackerScreenState extends State<HabitTrackerScreen> {
     return Colors.blue; // Default color in case of error.
   }
 
+  Future<void> _signOut() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.clear();
+    // Navigate back to login screen replacing the current route
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const LoginScreen()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,7 +106,7 @@ class _HabitTrackerScreenState extends State<HabitTrackerScreen> {
           children: [
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue.shade700,
+                color: Colors.blue.shade700,                
               ),
               child: Text(
                 'Menu',
@@ -125,6 +136,7 @@ class _HabitTrackerScreenState extends State<HabitTrackerScreen> {
             ListTile(
               leading: Icon(Icons.logout),
               title: Text('Sign Out'),
+              onTap: _signOut,
             ),
           ],
         ),
