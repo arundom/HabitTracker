@@ -77,7 +77,7 @@ As a user, I want to sign out of my account using an option in the menu, so that
 **View all habits**
   As a user, I want to see both completed and incomplete habits in my report so that I have a comprehensive view of my habit tracking performance.
 
-6. Notifications page
+7. Notifications page
 
 **Enable/disable notifications**
   As a user, I want to be able to enable or disable notifications for the app, so that I can choose whether or not to receive reminders for my habits.
