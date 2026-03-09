@@ -49,7 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
       Fluttertoast.showToast(
         msg: "The username or password was incorrect",
         toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.BOTTOM,
+        gravity: ToastGravity.CENTER,
         backgroundColor: Colors.red,
         textColor: Colors.white,
         fontSize: 16.0,

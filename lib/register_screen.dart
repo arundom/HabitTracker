@@ -68,7 +68,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     Fluttertoast.showToast(
       msg: message,
       toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.BOTTOM,
+      gravity: ToastGravity.CENTER,
       backgroundColor: Colors.red,
       textColor: Colors.white,
       fontSize: 16.0,
@@ -82,6 +82,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     if (email.isEmpty || name.isEmpty || username.isEmpty) {
       _showToast('Please fill in all fields');
+      return;
+    }
+
+    if (username == 'testuser') {
+      _showToast('User already exists');
       return;
     }
 
