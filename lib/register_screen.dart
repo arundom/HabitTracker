@@ -16,6 +16,7 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   final _nameController = TextEditingController();
+  final _emailController = TextEditingController();
   final _usernameController = TextEditingController();
   double _age = 25; // Default age set to 25
   String _country = 'United States';
@@ -76,9 +77,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   void _register() async {
     final name = _nameController.text;
+    final email = _emailController.text;
     final username = _usernameController.text;
 
-    if (username.isEmpty || name.isEmpty) {
+    if (email.isEmpty || name.isEmpty || username.isEmpty) {
       _showToast('Please fill in all fields');
       return;
     }
@@ -97,6 +99,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     // Save user information and habits to shared preferences.
     await prefs.setString('name', name);
+    await prefs.setString('email', email);
     await prefs.setString('username', username);
     await prefs.setDouble('age', _age);
     await prefs.setString('country', _country);
@@ -161,8 +164,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
               children: [
                 _buildInputField(_nameController, 'Name', Icons.person),
                 SizedBox(height: 10),
-                _buildInputField(
-                    _usernameController, 'Username', Icons.alternate_email),
+                _buildInputField(_emailController, 'Email', Icons.email),
+                SizedBox(height: 10),
+                _buildInputField(_usernameController, 'Username', Icons.alternate_email),
                 SizedBox(height: 10),
                 Text('Age: ${_age.round()}',
                     style: TextStyle(color: Colors.white, fontSize: 18)),

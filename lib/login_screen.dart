@@ -12,6 +12,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final _emailController = TextEditingController();
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
 
@@ -32,6 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
       await prefs.setString('name', 'Arun');
       await prefs.setString('username', 'testuser');
+      await prefs.setString('email', _emailController.text);
       await prefs.setDouble('age', 25);
       await prefs.setString('country', 'United States');
 
@@ -84,7 +86,25 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 
                 const SizedBox(height: 30),
-                // Username field
+                // Email field
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: TextField(
+                    controller: _emailController,
+                    decoration: InputDecoration(
+                      prefixIcon:
+                          Icon(Icons.email, color: Colors.blue.shade700),
+                      hintText: 'Enter Email',
+                      border: InputBorder.none,
+                      contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 15),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),                // Username field
                 Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -94,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     controller: _usernameController,
                     decoration: InputDecoration(
                       prefixIcon:
-                          Icon(Icons.email, color: Colors.blue.shade700),
+                          Icon(Icons.person, color: Colors.blue.shade700),
                       hintText: 'Enter Username',
                       border: InputBorder.none,
                       contentPadding: const EdgeInsets.symmetric(
@@ -102,8 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
-               // Password field with obscured text
+                const SizedBox(height: 20),                // Password field with obscured text
                 Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
