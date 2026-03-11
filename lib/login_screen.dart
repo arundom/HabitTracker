@@ -75,6 +75,13 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                // Optional logo for web/home screen
+                Image.asset(
+                  'assets/logo.png',
+                  width: 120,
+                  height: 120,
+                ),
+                const SizedBox(height: 20),
                 // App title
                 const Text(
                   'Habitt',

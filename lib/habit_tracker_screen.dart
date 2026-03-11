@@ -82,13 +82,26 @@ class _HabitTrackerScreenState extends State<HabitTrackerScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue.shade700,
-        title: Text(
-          name.isNotEmpty ? 'Hi $name !' : 'Hello there...',
-          style: const TextStyle(
-            fontSize: 24,
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
+        title: Row(
+          children: [
+            Image.asset(
+              'assets/logo.png',
+              width: 32,
+              height: 32,
+            ),
+            const SizedBox(width: 8),
+            Expanded(
+              child: Text(
+                name.isNotEmpty ? 'Hi $name !' : 'Hello there...',
+                style: const TextStyle(
+                  fontSize: 24,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+          ],
         ),
         automaticallyImplyLeading: true,
         actions: [
